@@ -10,9 +10,12 @@ class Mahasiswa extends CI_Controller {
     public function index(){
         $data['title'] = 'Mahasiswa';
         $data['mahasiswa'] = $this->Mahasiswa_model->getAllMahasiswa();
+        if ($this->input->post('keyword')) {
+            $data['mahasiswa'] = $this->Mahasiswa_model->findMahasiswa();
+        }
 
         $this->load->view('templates/header', $data);
-        $this->load->view('mahasiswa/index');
+        $this->load->view('mahasiswa/index', $data);
 		$this->load->view('templates/footer');
     }
 
@@ -23,14 +26,40 @@ class Mahasiswa extends CI_Controller {
         $this->form_validation->set_rules('npm', 'NPM', 'required|numeric');
         $this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
         $this->form_validation->set_rules('fakultas', 'Fakultas', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('hp', 'No HP', 'required|numeric');
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('templates/header', $data);
             $this->load->view('mahasiswa/add');
             $this->load->view('templates/footer');
         } else {
             $this->Mahasiswa_model->insertDataMahasiswa();
-            $this->session->set_flashdata('flash');
+            $this->session->set_flashdata('flash', "added");
+            redirect('mahasiswa');
+        }
+    }
+
+    public function delete($npm) {
+        $this->Mahasiswa_model->deleteMahasiswa($npm);
+        $this->session->set_flashdata('flash', "deleted");
+        redirect('mahasiswa');
+    }
+
+    public function edit($npm){
+        $data['title'] = 'Edit Data Mahasiswa';
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswabyNPM($npm);
+
+        $this->form_validation->set_rules('nama', 'Name', 'required');
+        $this->form_validation->set_rules('npm', 'NPM', 'required|numeric');
+        $this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
+        $this->form_validation->set_rules('fakultas', 'Fakultas', 'required');
+        $this->form_validation->set_rules('hp', 'No HP', 'required|numeric');
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('mahasiswa/edit', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Mahasiswa_model->editDataMahasiswa();
+            $this->session->set_flashdata('flash', "edited");
             redirect('mahasiswa');
         }
     }
