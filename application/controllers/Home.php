@@ -6,6 +6,7 @@ class Home extends CI_Controller
 		parent::__construct();
 		$this->load->library('Templates');
   }
+  
 	public function index(){
 		$data['title'] = 'Home';
 		$this->templates->display('home/index', $data);

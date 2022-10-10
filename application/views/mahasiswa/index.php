@@ -1,10 +1,17 @@
+<script>
+function onButtonPress() {
+   $('.alert').alert('close')
+}
+</script>
+
 <div class="container">
    <?php if ($this->session->flashdata('flash') ) : ?>
    <div class="row mt-3">
       <div class="col-md-6">
          <div class="alert alert-success alert-dismissible fade show" role="alert">
             Data <strong><?= $this->session->flashdata('flash'); ?></strong> succesfully.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+               onclick="onButtonPress()"></button>
          </div>
       </div>
    </div>

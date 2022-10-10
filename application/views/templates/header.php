@@ -8,10 +8,10 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
-
-   <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.6.0.slim.js">
+   </script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js">
+   </script>
 
    <!-- Favicons -->
    <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/apple-touch-icon.png"
@@ -136,32 +136,27 @@
       src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf");
    }
    </style>
-</head>
 
-<body>
-   </head>
-
-   <body>
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow" style="background-color: #29275B;">
-         <div class="container">
-            <a class="navbar-brand fw-bold" href="<?= base_url() ?>mahasiswa"
-               style="background-color: #29275B; box-shadow: none">Codeigniter 3</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
-               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-               <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                     <a class="nav-link active fw-semibold" aria-current="page" href="<?= base_url() ?>">Home</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link fw-semibold" href="<?= base_url() ?>mahasiswa">Mahasiswa</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link fw-semibold" href="<?= base_url() ?>aboutme">About Me</a>
-                  </li>
-               </ul>
-            </div>
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow" style="background-color: #29275B;">
+      <div class="container">
+         <a class="navbar-brand fw-bold" href="<?= base_url() ?>mahasiswa"
+            style="background-color: #29275B; box-shadow: none">Codeigniter 3</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+               <li class="nav-item">
+                  <a class="nav-link active fw-semibold" aria-current="page" href="<?= base_url() ?>">Home</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link fw-semibold" href="<?= base_url() ?>mahasiswa">Mahasiswa</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link fw-semibold" href="<?= base_url() ?>aboutme">About Me</a>
+               </li>
+            </ul>
          </div>
-      </nav>
+      </div>
+   </nav>
