@@ -1,4 +1,4 @@
-<div class="container" style="padding-top: 5rem;">
+<div class="container">
    <?php if ($this->session->flashdata('flash') ) : ?>
    <div class="row mt-3">
       <div class="col-md-6">
@@ -11,7 +11,7 @@
    <?php endif; ?>
 
    <div class="row mt-3 justify-content-between">
-    <div class="col-4 w-25">
+      <div class="col-4 w-25">
          <form action="" method="post">
             <div class="input-group">
                <input type="text" class="form-control" placeholder="Search mahasiswa..." name="keyword">

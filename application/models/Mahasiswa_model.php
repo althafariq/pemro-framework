@@ -12,9 +12,9 @@ class Mahasiswa_model extends CI_Model {
     public function insertDataMahasiswa() {
         $data = [
             "npm" => $this->input->post('npm', true),
-            "nama" => $this->input->post('nama', true),
-            "jurusan" => $this->input->post('jurusan', true),
-            "fakultas" => $this->input->post('fakultas', true),
+            "nama" => capitalizeFirst($this->input->post('nama', true)),
+            "jurusan" => capitalizeFirst($this->input->post('jurusan', true)),
+            "fakultas" => capitalizeFirst($this->input->post('fakultas', true)),
             "hp" => $this->input->post('hp', true),
             "email" => $this->input->post('npm') . "@student.upnjatim.ac.id"
         ];
@@ -34,9 +34,9 @@ class Mahasiswa_model extends CI_Model {
     public function editDataMahasiswa() {
         $data = [
             "npm" => $this->input->post('npm', true),
-            "nama" => $this->input->post('nama', true),
-            "jurusan" => $this->input->post('jurusan', true),
-            "fakultas" => $this->input->post('fakultas', true),
+            "nama" => capitalizeFirst($this->input->post('nama', true)),
+            "jurusan" => capitalizeFirst($this->input->post('jurusan', true)),
+            "fakultas" => capitalizeFirst($this->input->post('fakultas', true)),
             "hp" => $this->input->post('hp', true),
             "email" => $this->input->post('npm') . "@student.upnjatim.ac.id"
         ];

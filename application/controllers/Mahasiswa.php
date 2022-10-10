@@ -4,6 +4,7 @@ class Mahasiswa extends CI_Controller {
         parent::__construct();
         $this->load->model('Mahasiswa_model');
         $this->load->library('form_validation');
+        $this->load->library('Templates');
         
     }
 
@@ -14,9 +15,12 @@ class Mahasiswa extends CI_Controller {
             $data['mahasiswa'] = $this->Mahasiswa_model->findMahasiswa();
         }
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('mahasiswa/index', $data);
-		$this->load->view('templates/footer');
+        $this->templates->display('mahasiswa/index', $data);
+
+        // $this->load->view('templates/header', $data);
+        // $this->load->view('mahasiswa/index', $data);
+		// $this->load->view('templates/footer');
+        // $this->load->view('templates/sidebar', $data);
     }
 
     public function add(){
@@ -28,9 +32,9 @@ class Mahasiswa extends CI_Controller {
         $this->form_validation->set_rules('fakultas', 'Fakultas', 'required');
         $this->form_validation->set_rules('hp', 'No HP', 'required|numeric');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('mahasiswa/add');
-            $this->load->view('templates/footer');
+            
+            $this->templates->display('mahasiswa/add', $data);
+            
         } else {
             $this->Mahasiswa_model->insertDataMahasiswa();
             $this->session->set_flashdata('flash', "added");
@@ -54,9 +58,9 @@ class Mahasiswa extends CI_Controller {
         $this->form_validation->set_rules('fakultas', 'Fakultas', 'required');
         $this->form_validation->set_rules('hp', 'No HP', 'required|numeric');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('mahasiswa/edit', $data);
-            $this->load->view('templates/footer');
+            
+            $this->templates->display('mahasiswa/edit', $data);
+            
         } else {
             $this->Mahasiswa_model->editDataMahasiswa();
             $this->session->set_flashdata('flash', "edited");
