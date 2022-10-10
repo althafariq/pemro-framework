@@ -144,7 +144,8 @@
    <body>
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow" style="background-color: #29275B;">
          <div class="container">
-            <a class="navbar-brand fw-bold" href="<?= base_url() ?>mahasiswa">Codeigniter 3</a>
+            <a class="navbar-brand fw-bold" href="<?= base_url() ?>mahasiswa"
+               style="background-color: #29275B; box-shadow: none">Codeigniter 3</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
