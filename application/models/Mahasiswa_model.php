@@ -28,7 +28,21 @@ class Mahasiswa_model extends CI_Model {
     }
 
     public function getMahasiswabyNPM($npm) {
-        return $this->db->get_where('mahasiswa', ['npm' => $npm])->row();
+        $sql = "SELECT * FROM mahasiswa WHERE npm = '$npm'";
+
+        return $this->db->query($sql)->result();
+    }
+
+    public function getMahasiswabyNama($nama) { 
+        $sql = "SELECT * FROM mahasiswa WHERE nama = '$nama'";
+
+        return $this->db->query($sql)->result();
+    }
+
+    public function getMahasiswabyJurusan($jurusan) {
+        $sql = "SELECT * FROM mahasiswa WHERE jurusan = '$jurusan'";
+
+        return $this->db->query($sql)->result();
     }
 
     public function editDataMahasiswa() {

@@ -23,6 +23,29 @@ class Mahasiswa extends CI_Controller {
         // $this->load->view('templates/sidebar', $data);
     }
 
+    public function getMahasiswabyNPM($npm = '') {
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswabyNPM($npm);
+        $this->templates->display('mahasiswa/index', $data);
+    }
+
+    public function getMahasiswabyNama($nama = '') {
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswabyNama(rawurldecode($nama));
+        $this->templates->display('mahasiswa/index', $data);
+    }
+
+    public function getMahasiswa($npm = '', $nama = '') {
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswabyNPM($npm);
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswabyNama(rawurldecode($nama));
+
+        $this->templates->display('mahasiswa/index', $data);
+    }
+
+    public function getMahasiswabyJurusan($jurusan = '') {
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswabyJurusan(rawurldecode($jurusan));
+        $this->templates->display('mahasiswa/index', $data);
+    }
+
+
     public function add(){
         $data['title'] = 'Insert New Mahasiswa';
 

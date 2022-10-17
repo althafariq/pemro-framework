@@ -52,3 +52,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['mahasiswa/jurusan/(:any)'] = 'mahasiswa/getMahasiswabyJurusan/$1';
+
+//by npm only
+$route['mahasiswa/npm/(:any)'] = 'mahasiswa/getMahasiswabyNPM/$1';
+
+//by npm and name
+$route['mahasiswa/(:any)/(:any)'] = 'mahasiswa/getMahasiswa/$1/$2';
