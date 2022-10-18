@@ -33,6 +33,10 @@ class Mahasiswa_model extends CI_Model {
         return $this->db->query($sql)->result();
     }
 
+    public function getMahasiswabyNPMtoEdit($npm) {
+        return $this->db->get_where('mahasiswa', ['npm' => $npm])->row();
+    }
+
     public function getMahasiswabyNama($nama) { 
         $sql = "SELECT * FROM mahasiswa WHERE nama = '$nama'";
 

@@ -73,7 +73,7 @@ class Mahasiswa extends CI_Controller {
 
     public function edit($npm){
         $data['title'] = 'Edit Data Mahasiswa';
-        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswabyNPM($npm);
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswabyNPMtoEdit($npm);
 
         $this->form_validation->set_rules('nama', 'Name', 'required');
         $this->form_validation->set_rules('npm', 'NPM', 'required|numeric');

@@ -55,8 +55,12 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['mahasiswa/jurusan/(:any)'] = 'mahasiswa/getMahasiswabyJurusan/$1';
 
+$route['mahasiswa/edit/(:any)'] = 'mahasiswa/edit/$1';
 //by npm only
 $route['mahasiswa/npm/(:any)'] = 'mahasiswa/getMahasiswabyNPM/$1';
+
+$route['mahasiswa/delete/(:any)'] = 'mahasiswa/delete/$1';
+
 
 //by npm and name
 $route['mahasiswa/(:any)/(:any)'] = 'mahasiswa/getMahasiswa/$1/$2';
