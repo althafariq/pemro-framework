@@ -3,10 +3,16 @@ class Mahasiswa extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('Mahasiswa_model');
+        $this->load->model('User_model');
         $this->load->library('form_validation');
         $this->load->library('Templates');
-        
+        $data['user'] = $this->User_model->getUserbyEmail();
     }
+
+    public function getUserbyEmail() {
+        $getUserbyEmail = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        return $getUserbyEmail;
+     }
 
     public function index(){
         $data['title'] = 'Mahasiswa';
@@ -14,7 +20,7 @@ class Mahasiswa extends CI_Controller {
         if ($this->input->post('keyword')) {
             $data['mahasiswa'] = $this->Mahasiswa_model->findMahasiswa();
         }
-
+        $data['user'] = $this->User_model->getUserbyEmail();
         $this->templates->display('mahasiswa/index', $data);
 
         // $this->load->view('templates/header', $data);
@@ -48,7 +54,8 @@ class Mahasiswa extends CI_Controller {
 
     public function add(){
         $data['title'] = 'Insert New Mahasiswa';
-
+        $data['user'] = $this->User_model->getUserbyEmail();
+        
         $this->form_validation->set_rules('nama', 'Name', 'required');
         $this->form_validation->set_rules('npm', 'NPM', 'required|numeric');
         $this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
@@ -73,6 +80,7 @@ class Mahasiswa extends CI_Controller {
 
     public function edit($npm){
         $data['title'] = 'Edit Data Mahasiswa';
+        $data['user'] = $this->User_model->getUserbyEmail();
         $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswabyNPMtoEdit($npm);
 
         $this->form_validation->set_rules('nama', 'Name', 'required');

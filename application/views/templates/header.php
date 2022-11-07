@@ -137,6 +137,15 @@
    }
    </style>
 
+   <!-- Custom fonts for this template-->
+   <link href="<?= base_url(); ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+   <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet">
+
+   <!-- Custom styles for this template-->
+   <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
+
    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow" style="background-color: #29275B;">
       <div class="container">
          <a class="navbar-brand fw-bold" href="<?= base_url() ?>mahasiswa"
@@ -145,6 +154,7 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
          </button>
+
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                <li class="nav-item">
@@ -153,9 +163,78 @@
                <li class="nav-item">
                   <a class="nav-link fw-semibold" href="<?= base_url() ?>mahasiswa">Mahasiswa</a>
                </li>
-               <li class="nav-item">
+               <!-- <li class="nav-item">
                   <a class="nav-link fw-semibold" href="<?= base_url() ?>aboutme">About Me</a>
-               </li>
+               </li> -->
+
+               <!-- <li class="nav-item dropdown no-arrow">
+                  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col">
+                              <img class="img-profile rounded-circle"
+                                 src="<?= base_url(); ?>assets/img/undraw_profile.svg">
+                           </div>
+                           <div class="col">
+                              <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['name']; ?></span>
+                           </div>
+                        </div>
+                        <!-- <span class="nav-link fw-semibold">Douglas McGee</span>
+                        <img style="width: 32px; height: 32px;" class="img-profile rounded-circle"
+                        src="<?= base_url(); ?>assets/img/undraw_profile.svg"> -->
+               <!-- </div>
+                  </a>
+                  <!-- Dropdown - User Information -->
+               <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                     aria-labelledby="userDropdown">
+                     <a class="dropdown-item" href="<?= base_url() ?>aboutme">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile
+                     </a>
+                     <a class="dropdown-item" href="#">
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Settings
+                     </a>
+                     <a class="dropdown-item" href="#">
+                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Activity Log
+                     </a>
+                     <div class="dropdown-divider"></div>
+                     <a class="dropdown-item" href="<?= base_url() ?>auth/logout/" data-toggle="modal"
+                        data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout
+                     </a>
+                  </div>
+               </li> -->
+
+               <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                  <ul class="navbar-nav">
+                     <li class="nav-item dropdown">
+                        <a class="nav-link fw-reguler dropdown-toggle" href="<?= base_url(); ?>aboutme" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                           <?= $user['name']; ?>
+                           <img style="margin-left: 3px;" width="24" class="img-profile rounded-circle"
+                              src="<?= base_url(); ?>assets/img/profile/default.png">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-light">
+                           <li>
+
+                              <a class="dropdown-item" href="<?= base_url() ?>aboutme"><i
+                                    class="bi bi-person-fill"></i>About Me</a>
+                           </li>
+                           <li><a class="dropdown-item" href="#">Another action</a></li>
+                           <li>
+                              <hr class="dropdown-divider">
+                           </li>
+                           <li><a class="dropdown-item" href="<?= base_url() ?>auth/logout">Logout</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+
+
             </ul>
          </div>
       </div>

@@ -6,15 +6,15 @@ class Aboutme extends CI_Controller
 		parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->library('Templates');
+		$this->load->model('User_model');
 		
   }
 	public function index(){
-		$data['title'] = 'About Me';
-		$getUserbyEmail = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-      $data['user'] = $getUserbyEmail;
+		$data['user'] = $this->User_model->getUserbyEmail();
+		$data['title'] = $data['user']['name'];
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/Footer');
-		$this->load->view('aboutme/index');
+		$this->load->view('aboutme/index', $data);
 	}
 }
 ?>
