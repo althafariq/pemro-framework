@@ -224,7 +224,7 @@
                               <a class="dropdown-item" href="<?= base_url() ?>aboutme"><i
                                     class="bi bi-person-fill"></i>About Me</a>
                            </li>
-                           <li><a class="dropdown-item" href="#">Another action</a></li>
+                           <li><a class="dropdown-item" href="#">User Management</a></li>
                            <li>
                               <hr class="dropdown-divider">
                            </li>

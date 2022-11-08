@@ -6,11 +6,12 @@ class Home extends CI_Controller
 		parent::__construct();
 		$this->load->library('Templates');
 		$this->load->model('User_model');
+		is_logged_in();
   }
 
 	public function index(){
 		$data['title'] = 'Home';
-		$data['user'] = $this->User_model->getUserbyEmail();
+		$data['user'] = getUserbyEmail();
 		$this->templates->display('home/index', $data);
 	}
 

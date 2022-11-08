@@ -30,12 +30,12 @@ class Mahasiswa_model extends CI_Model {
     public function getMahasiswabyNPM($npm) {
         $sql = "SELECT * FROM mahasiswa WHERE npm = '$npm'";
 
-        return $this->db->query($sql)->result();
+        return $this->db->query($sql)->row();
     }
 
-    public function getMahasiswabyNPMtoEdit($npm) {
-        return $this->db->get_where('mahasiswa', ['npm' => $npm])->row();
-    }
+    // public function getMahasiswabyNPMtoEdit($npm) {
+    //     return $this->db->get_where('mahasiswa', ['npm' => $npm])->row();
+    // }
 
     public function getMahasiswabyNama($nama) { 
         $sql = "SELECT * FROM mahasiswa WHERE nama = '$nama'";
@@ -49,7 +49,7 @@ class Mahasiswa_model extends CI_Model {
         return $this->db->query($sql)->result();
     }
 
-    public function editDataMahasiswa() {
+    public function editDataMahasiswa($npm) {
         $data = [
             "npm" => $this->input->post('npm', true),
             "nama" => capitalizeFirst($this->input->post('nama', true)),
@@ -59,7 +59,7 @@ class Mahasiswa_model extends CI_Model {
             "email" => $this->input->post('npm') . "@student.upnjatim.ac.id"
         ];
 
-        $this->db->where('npm', $this->input->post('npm'));
+        $this->db->where('npm', $npm);
         $this->db->update('mahasiswa', $data);
     }
 

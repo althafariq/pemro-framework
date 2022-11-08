@@ -3,16 +3,10 @@ class Mahasiswa extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('Mahasiswa_model');
-        $this->load->model('User_model');
         $this->load->library('form_validation');
         $this->load->library('Templates');
-        $data['user'] = $this->User_model->getUserbyEmail();
+        is_logged_in();
     }
-
-    public function getUserbyEmail() {
-        $getUserbyEmail = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        return $getUserbyEmail;
-     }
 
     public function index(){
         $data['title'] = 'Mahasiswa';
@@ -20,7 +14,7 @@ class Mahasiswa extends CI_Controller {
         if ($this->input->post('keyword')) {
             $data['mahasiswa'] = $this->Mahasiswa_model->findMahasiswa();
         }
-        $data['user'] = $this->User_model->getUserbyEmail();
+        $data['user'] = getUserbyEmail();
         $this->templates->display('mahasiswa/index', $data);
 
         // $this->load->view('templates/header', $data);
@@ -54,7 +48,7 @@ class Mahasiswa extends CI_Controller {
 
     public function add(){
         $data['title'] = 'Insert New Mahasiswa';
-        $data['user'] = $this->User_model->getUserbyEmail();
+        $data['user'] = getUserbyEmail();
         
         $this->form_validation->set_rules('nama', 'Name', 'required');
         $this->form_validation->set_rules('npm', 'NPM', 'required|numeric');
@@ -80,8 +74,8 @@ class Mahasiswa extends CI_Controller {
 
     public function edit($npm){
         $data['title'] = 'Edit Data Mahasiswa';
-        $data['user'] = $this->User_model->getUserbyEmail();
-        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswabyNPMtoEdit($npm);
+        $data['user'] = getUserbyEmail();
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswabyNPM($npm);
 
         $this->form_validation->set_rules('nama', 'Name', 'required');
         $this->form_validation->set_rules('npm', 'NPM', 'required|numeric');
@@ -89,9 +83,7 @@ class Mahasiswa extends CI_Controller {
         $this->form_validation->set_rules('fakultas', 'Fakultas', 'required');
         $this->form_validation->set_rules('hp', 'No HP', 'required|numeric');
         if ($this->form_validation->run() == FALSE) {
-            
-            $this->templates->display('mahasiswa/edit', $data);
-            
+            $this->templates->display('mahasiswa/edit', $data); 
         } else {
             $this->Mahasiswa_model->editDataMahasiswa();
             $this->session->set_flashdata('flash', "edited");
